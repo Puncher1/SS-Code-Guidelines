@@ -67,6 +67,7 @@ def long_function_name(
 
 #### 2.1.2. If-Statements
 For `if`-statements there are no specific rules on how to do indent. However, acceptable options include, but are not limited to:
+
 ```py
 # No extra indentation.
 if (this_is_one_thing and
@@ -83,6 +84,7 @@ if (this_is_one_thing and
 
 #### 2.1.3. Closing brace/bracket/parenthesis
 The closing brace/bracket/parenthesis on multiline constructs may either line up under the first non-whitespace character of the last line of list, as in:
+
 ```py
 my_list = [
     1, 2, 3,
@@ -94,6 +96,7 @@ result = some_function_that_takes_arguments(
     )
 ```
 or it may be lined up under the first character of the line that starts the multiline construct, as in:
+
 ```py
 my_list = [
     1, 2, 3,
@@ -133,6 +136,7 @@ with open('/path/to/some/file/you/want/to/read') as file_1, \
 ### 2.3. Line Break at Operators
 
 For readability it's recommended to line break **before** the operator (see below). However, it's <ins>not mandatory.</ins>
+
 ```py
 # Recommended:
 
@@ -170,6 +174,7 @@ class Foo:
         # ...
 ```
 Extra blank lines may be used (sparingly) to separate groups of code. However it should be reasonable, means no extra blank lines between a bunch of one-liners.
+
 ```py
 # Correct:
 
@@ -248,6 +253,7 @@ now = datetime.now() + timedelta(hours=result)
 
 ### 2.6. Module Level Dunder Names
 Module level “dunders” (i.e. names with two leading and two trailing underscores) such as `__all__`, `__author__`, `__version__`, etc. should be placed after the module docstring but before any import statements except `from __future__` imports. Python mandates that future-imports must appear in the module before any other code except docstrings:
+
 ```py
 """
 This module handles stuff.
@@ -308,6 +314,7 @@ Avoid extraneous whitespace in the following situations:
   if x == 4 : print(x , y) ; x , y = y , x
   ```
 * However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted:
+
   ```py
   # Correct:
   ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
@@ -342,6 +349,7 @@ Avoid extraneous whitespace in the following situations:
   dct ['key'] = lst [index]
   ```
 * More than one space around an assignment (or other) operator to align it with another:
+
   ```py
   # Correct:
   x = 1
@@ -362,6 +370,7 @@ Avoid extraneous whitespace in the following situations:
 * Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker.
 * Always surround these binary operators with a single space on either side: assignment (`=`), augmented assignment (`+=`, `-=` etc.), comparisons (`==`, `<`, `>`, `!=`, `<>`, `<=`, `>=`, `in`, `not in`, `is`, `is not`), Booleans (`and`, `or`, `not`).
 * If operators with different priorities are used, consider adding one whitespace around the operators with the lowest priority(ies).
+
   ```py
   # Correct:
   i = i + 1
@@ -379,6 +388,7 @@ Avoid extraneous whitespace in the following situations:
   c = (a + b) * (a - b)
   ```
 * Function annotations should use the normal rules for colons and always have spaces around the -> arrow if present. (See <span style="color:red">**Function Annotations**</span> below for more about function annotations.):
+
   ```py
   # Correct:
   def munge(input: AnyStr): ...
@@ -390,21 +400,153 @@ Avoid extraneous whitespace in the following situations:
   def munge()->PosInt: ...
   ```
 * Don’t use spaces around the `=` sign when used to indicate a keyword argument, or when used to indicate a default value for an unannotated function parameter:
+
   ```py
   # Correct:
   def complex(real, imag=0.0):
-  return magic(r=real, i=imag)
+      return magic(r=real, i=imag)
   ```  
   ```py
   # Wrong:
   def complex(real, imag = 0.0):
-  return magic(r = real, i = imag)
+      return magic(r = real, i = imag)
   ```
-* Don’t use spaces around the = sign when used to indicate a keyword argument, or when used to indicate a default value for an unannotated function parameter:
+* Don’t use spaces around the `=` sign when used to indicate a keyword argument, or when used to indicate a default value for an *unannotated* function parameter:
+
+  ```py
   # Correct:
   def complex(real, imag=0.0):
-  return magic(r=real, i=imag)
+      return magic(r=real, i=imag)
+  ```
+  ```py
   # Wrong:
   def complex(real, imag = 0.0):
-  return magic(r = real, i = imag)
+      return magic(r = real, i = imag)
+  ```
+  When combining an argument annotation with a default value, however, do use spaces around the `=` sign:
+  ```py
+  # Correct:
+  def munge(sep: AnyStr = None): ...
+  def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...
+  ```
+  ```py
+  # Wrong:
+  def munge(input: AnyStr=None): ...
+  def munge(input: AnyStr, limit = 1000): ...
+  ```
+* Don't use multiple statements on the same line
+  ```py
+  # Wrong
+  if foo == 'blah': do_blah_thing()
+  do_one(); do_two(); do_three()
+  ```
+  Rather do:
+  ```py
+  # Correct:
+  if foo == 'blah':
+      do_blah_thing()
+  do_one()
+  do_two()
+  do_three()
+  ```
+  Definitely not:
+  ```py
+  # Wrong:
+  if foo == 'blah': do_blah_thing()
+  else: do_non_blah_thing()
+
+  try: something()
+  finally: cleanup()
+
+  do_one(); do_two(); do_three(long, argument,
+                               list, like, this)
+
+  if foo == 'blah': one(); two(); three()
+  ```
+
+<br>
+<br>
+
+## Comments
+Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes! Ensure that your comments are clear and easily understandable to others.
+
+<br>
+
+### Documentation Strings
+* Write docstrings for **all public modules, functions, classes and methods.** For non-public (`def __foo(): ...`) methods you don't have to use docstrings. A description with a comment is useful though. This comment should appear after the `def` line.
+
+Multiline docstrings:
+```py
+"""
+Return a foobang
+
+Optional plotz says to frobnicate the bizbaz first.
+"""
+```
+One liner docstrings:
+```py
+"""Return an ex-parrot."""
+```
+
+<br>
+<br>
+
+## Naming Conventions
+
+### Descriptive: Naming Styles
+The following naming styles are commonly used:
+* `b` (single lowercase letter)
+* `B` (single uppercase letter)
+* `lowercase`
+* `lower_case_with_underscores`
+* `UPPERCASE`
+* `UPPER_CASE_WITH_UNDERSCORES`
+* `CapitalizedWords` (or CapWords, or CamelCase)
+  <br>Note: When using acronyms in CapWords, capitalize all the letters of the acronym. HTTPServerError is better than HttpServerError.
+* `mixedCase`
+* `Capitalized_Words_With_Underscores` (**Dont use this**)
+
+In addition, the following special forms using leading or trailing underscores are recognized (these can generally be combined with any case convention):
+* `_single_leading_underscore`: weak “internal use” indicator. E.g. `from <module> import *` does not import objects whose names start with one underscore.
+* `single_trailing_underscore_`: used by convention to avoid conflicts with Python keyword, e.g.
+  ```py
+  tkinter.Toplevel(master, class_='ClassName')
+  ```
+* `__double_leading_underscore`: when naming a class attribute in class `FooBar`, `__boo` becomes `_FooBar__boo`. Means invoking`FooBar.__boo` won't work.
+* `__double_leading_and_trailing_underscore__`: “magic” objects or attributes that live in user-controlled namespaces. E.g. `__init__`, `__import__` or `__file__`. **Never invent such names; only use them as documented.**
+
+<br>
+
+### Prescriptive: Naming Conventions
+**Names to avoid as single character variable names**:
+* `l` (loweercase letter "el")
+* `O` (uppercase letter "oh")
+* `I` (uppercase letter "eye")
+  In some fonts these characters are indistinguishable.
+
+
+**Package and Module Names**<br>
+Short, all-lowercase names, underscores only if it improves readability (e.g. `var = "string"`)
+
+**Class Names**<br>
+CamelCase convention (e.g. `class FooBar`)
+
+**Function and Variable Names**<br>
+Lowercase, with words separated by underscores for readability
+```py
+# Correct:
+def create_foo():
+  my_var = "string"
+  num = 1
+```
+**Method Names and Instance Variables**<br>
+Same rule as for functions and variable names. <br>
+* Use one leading underscore **only for non-public methods and instance variables** (not two) -> `_my_var`, `_create_foo`.
+* Use two leading underscores **only to avoid name clashes with subclasses**. Although if class `FooBar` has an attribute named `__bar`, it cannot be accessed by `Foo.__bar`. 
+
+**Constants**
+Defined on a module level and written in all capital letters with underscores for separating words. (e.g. `MAX_TIME`, `TOTAL`)
+
+**Designing for Inheritance
+
 
