@@ -20,6 +20,19 @@
     - [2.6. Module Level Dunder Names](#26-module-level-dunder-names)
   - [3. String Quotes](#3-string-quotes)
   - [4. Whitespace in Expressions and Statements](#4-whitespace-in-expressions-and-statements)
+    - [4.1 Pet Peeves](#41-pet-peeves)
+    - [4.2 Other important things](#42-other-important-things)
+  - [5. Comments](#5-comments)
+    - [5.1 Documentation Strings](#51-documentation-strings)
+  - [6. Naming Conventions](#6-naming-conventions)
+    - [6.1 Descriptive: Naming Styles](#61-descriptive-naming-styles)
+    - [6.7 Prescriptive: Naming Conventions](#67-prescriptive-naming-conventions)
+      - [6.7.1 Package and Module Names](#671-package-and-module-names)
+      - [6.7.2 Class Names](#672-class-names)
+      - [6.7.3 Function and Variable Names](#673-function-and-variable-names)
+      - [6.7.4 Method Names and Instance Variables](#674-method-names-and-instance-variables)
+      - [6.7.5 Constants](#675-constants)
+      - [6.7.6 Designing for Inheritance](#676-designing-for-inheritance)
 
 <br>
 <br>
@@ -282,7 +295,7 @@ In Python, single-quoted strings and double-quoted strings are the same. You can
 
 ## 4. Whitespace in Expressions and Statements
 
-### Pet Peeves
+### 4.1 Pet Peeves
 Avoid extraneous whitespace in the following situations:
 * Immediately inside parentheses, brackets or braces:
   
@@ -365,7 +378,7 @@ Avoid extraneous whitespace in the following situations:
 
 <br>
 
-### Other important things 
+### 4.2 Other important things 
 
 * Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker.
 * Always surround these binary operators with a single space on either side: assignment (`=`), augmented assignment (`+=`, `-=` etc.), comparisons (`==`, `<`, `>`, `!=`, `<>`, `<=`, `>=`, `in`, `not in`, `is`, `is not`), Booleans (`and`, `or`, `not`).
@@ -467,12 +480,12 @@ Avoid extraneous whitespace in the following situations:
 <br>
 <br>
 
-## Comments
+## 5. Comments
 Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes! Ensure that your comments are clear and easily understandable to others.
 
 <br>
 
-### Documentation Strings
+### 5.1 Documentation Strings
 * Write docstrings for **all public modules, functions, classes and methods.** For non-public (`def __foo(): ...`) methods you don't have to use docstrings. A description with a comment is useful though. This comment should appear after the `def` line.
 
 Multiline docstrings:
@@ -491,9 +504,9 @@ One liner docstrings:
 <br>
 <br>
 
-## Naming Conventions
+## 6. Naming Conventions
 
-### Descriptive: Naming Styles
+### 6.1 Descriptive: Naming Styles
 The following naming styles are commonly used:
 * `b` (single lowercase letter)
 * `B` (single uppercase letter)
@@ -517,7 +530,7 @@ In addition, the following special forms using leading or trailing underscores a
 
 <br>
 
-### Prescriptive: Naming Conventions
+### 6.7 Prescriptive: Naming Conventions
 **Names to avoid as single character variable names**:
 * `l` (loweercase letter "el")
 * `O` (uppercase letter "oh")
@@ -525,13 +538,13 @@ In addition, the following special forms using leading or trailing underscores a
   In some fonts these characters are indistinguishable.
 
 
-**Package and Module Names**<br>
+#### 6.7.1 Package and Module Names
 Short, all-lowercase names, underscores only if it improves readability (e.g. `var = "string"`)
 
-**Class Names**<br>
+#### 6.7.2 Class Names
 CamelCase convention (e.g. `class FooBar`)
 
-**Function and Variable Names**<br>
+#### 6.7.3 Function and Variable Names
 Lowercase, with words separated by underscores for readability
 ```py
 # Correct:
@@ -539,14 +552,15 @@ def create_foo():
   my_var = "string"
   num = 1
 ```
-**Method Names and Instance Variables**<br>
+
+#### 6.7.4 Method Names and Instance Variables
 Same rule as for functions and variable names. <br>
 * Use one leading underscore **only for non-public methods and instance variables** (not two) -> `_my_var`, `_create_foo`.
 * Use two leading underscores **only to avoid name clashes with subclasses**. Although if class `FooBar` has an attribute named `__bar`, it cannot be accessed by `Foo.__bar`. 
 
-**Constants**
+#### 6.7.5 Constants
 Defined on a module level and written in all capital letters with underscores for separating words. (e.g. `MAX_TIME`, `TOTAL`)
 
-**Designing for Inheritance
+#### 6.7.6 Designing for Inheritance
 
 
