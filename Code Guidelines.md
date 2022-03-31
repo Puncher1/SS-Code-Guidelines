@@ -275,3 +275,136 @@ In Python, single-quoted strings and double-quoted strings are the same. You can
 <br>
 
 ## 4. Whitespace in Expressions and Statements
+
+### Pet Peeves
+Avoid extraneous whitespace in the following situations:
+* Immediately inside parentheses, brackets or braces:
+  
+  ```py
+  # Correct:
+  spam(ham[1], {eggs: 2})
+  ```
+  ```py
+  # Wrong:
+  spam( ham[ 1 ], { eggs: 2 } )
+  ```
+* Between a trailing comma and a following close parenthesis:
+  
+  ```py
+  # Correct:
+  foo = (0,)
+  ```
+  ```py
+  # Wrong:
+  bar = (0, )
+  ```
+* Immediately before a comma, semicolon, or colon:
+  ```py
+  # Correct:
+  if x == 4: print(x, y); x, y = y, x
+  ```
+  ```py
+  # Wrong:
+  if x == 4 : print(x , y) ; x , y = y , x
+  ```
+* However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted:
+  ```py
+  # Correct:
+  ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+  ham[lower:upper], ham[lower:upper:], ham[lower::step]
+  ham[lower+offset : upper+offset]
+  ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+  ham[lower + offset : upper + offset]
+  ```
+  ```py
+  # Wrong:
+  ham[lower + offset:upper + offset]
+  ham[1: 9], ham[1 :9], ham[1:9 :3]
+  ham[lower : : upper]
+  ham[ : upper]
+  ```
+* Immediately before the open parenthesis that starts the argument list of a function call:
+  ```py
+  # Correct:
+  spam(1)
+  ```
+  ```py
+  # Wrong:
+  spam (1)
+  ```
+* Immediately before the open parenthesis that starts an indexing or slicing:
+  ```py
+  # Correct:
+  dct['key'] = lst[index]
+  ```
+  ```py
+  # Wrong:
+  dct ['key'] = lst [index]
+  ```
+* More than one space around an assignment (or other) operator to align it with another:
+  ```py
+  # Correct:
+  x = 1
+  y = 2
+  long_variable = 3
+  ```
+  ```py
+  # Wrong:
+  x             = 1
+  y             = 2
+  long_variable = 3
+  ```
+
+<br>
+
+### Other important things 
+
+* Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker.
+* Always surround these binary operators with a single space on either side: assignment (`=`), augmented assignment (`+=`, `-=` etc.), comparisons (`==`, `<`, `>`, `!=`, `<>`, `<=`, `>=`, `in`, `not in`, `is`, `is not`), Booleans (`and`, `or`, `not`).
+* If operators with different priorities are used, consider adding one whitespace around the operators with the lowest priority(ies).
+  ```py
+  # Correct:
+  i = i + 1
+  submitted += 1
+  x = x*2 - 1
+  hypot2 = x*x + y*y
+  c = (a+b) * (a-b)
+  ```
+  ```py
+  # Wrong:
+  i=i+1
+  submitted +=1
+  x = x * 2 - 1
+  hypot2 = x * x + y * y
+  c = (a + b) * (a - b)
+  ```
+* Function annotations should use the normal rules for colons and always have spaces around the -> arrow if present. (See <span style="color:red">**Function Annotations**</span> below for more about function annotations.):
+  ```py
+  # Correct:
+  def munge(input: AnyStr): ...
+  def munge() -> PosInt: ...
+  ```
+  ```py
+  # Wrong:
+  def munge(input:AnyStr): ...
+  def munge()->PosInt: ...
+  ```
+* Don’t use spaces around the `=` sign when used to indicate a keyword argument, or when used to indicate a default value for an unannotated function parameter:
+  ```py
+  # Correct:
+  def complex(real, imag=0.0):
+  return magic(r=real, i=imag)
+  ```  
+  ```py
+  # Wrong:
+  def complex(real, imag = 0.0):
+  return magic(r = real, i = imag)
+  ```
+* Don’t use spaces around the = sign when used to indicate a keyword argument, or when used to indicate a default value for an unannotated function parameter:
+  # Correct:
+  def complex(real, imag=0.0):
+  return magic(r=real, i=imag)
+  # Wrong:
+  def complex(real, imag = 0.0):
+  return magic(r = real, i = imag)
+
