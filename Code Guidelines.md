@@ -563,4 +563,16 @@ Defined on a module level and written in all capital letters with underscores fo
 
 #### 6.7.6 Designing for Inheritance
 
+<br>
+<br>
 
+## 7. Programming (General)
+
+### 7.1 Comparisons
+* For `True`, `False` and `None` use `is` resp. `is not` instead of the equality operators. 
+
+
+<br>
+<br>
+
+## 8. Programming (discord.py)
