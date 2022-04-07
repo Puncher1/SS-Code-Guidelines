@@ -545,7 +545,7 @@ Short, all-lowercase names, underscores only if it improves readability (e.g. `v
 CamelCase convention (e.g. `class FooBar`)
 
 #### 6.7.3 Function and Variable Names
-Lowercase, with words separated by underscores for readability
+Lowercase, with words separated by underscores for readability.
 ```py
 # Correct:
 def create_foo():
@@ -554,9 +554,14 @@ def create_foo():
 ```
 
 #### 6.7.4 Method Names and Instance Variables
-Same rule as for functions and variable names. <br>
-* Use one leading underscore **only for non-public methods and instance variables** (not two) -> `_my_var`, `_create_foo`.
-* Use two leading underscores **only to avoid name clashes with subclasses**. Although if class `FooBar` has an attribute named `__bar`, it cannot be accessed by `Foo.__bar`. 
+Same name conventions as for [Function and Variable Names](#673-function-and-variable-names).
+
+**Avoid variable name clashes:**
+* Use one leading underscore for **protected variables which should be accessible for subclasses but not for the outside**.  -> `_my_var`, `_create_foo`
+* Use two leading underscores for **"private" attributes which should only be accessible for the base class but not for the subclasses and the outside**. -> `__my_var`, `__create_foo`
+* Use one trailing underscore **only to avoid collissions with a reserved keyword**. -> `tkinter.Toplevel(master, class_='ClassName')`
+
+**Note:** In Python no attribute is really private. If class `FooBar` has an attribute named `__bar`, it cannot be accessed by `FooBar.__bar` but by `FooBar._FooBar__bar`.
 
 #### 6.7.5 Constants
 Defined on a module level and written in all capital letters with underscores for separating words. (e.g. `MAX_TIME`, `TOTAL`)
