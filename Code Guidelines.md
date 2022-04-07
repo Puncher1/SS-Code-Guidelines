@@ -571,13 +571,56 @@ Defined on a module level and written in all capital letters with underscores fo
 <br>
 <br>
 
-## 7. Programming (General)
+## 7. Programming
 
-### 7.1 Comparisons
+### 7.1 General
+
+#### 7.1.1 Comparisons
+
 * For `True`, `False` and `None` use `is` resp. `is not` instead of the equality operators. 
+* Use `is not` instead of `not ... is `. Both are technically the same but it's more readable:
+  ```py
+  # Correct:
+  if foo is not None:
+  ```
+  ```py
+  # Wrong:
+  if not foo is None:
+  ```
 
+#### 7.1.2 Exceptions
+
+* Derive/Inherit exceptions from `Exception` rather than `BaseException`.
+* When catching excpetions don't use bare `except`. Mention specific exceptions whenever possible:
+  ```py
+  try:
+    import platform_specific_module
+  except ImportError:
+    platform_specific_module = None
+  ```
+  `except` is equivalent to `except BaseException` which will also catch `SystemExit` and `KeyboardInterrupt` exceptions. Use `except Exception` instead if you want to catch all program errors.
+
+* Additionally, for all try/except clauses, limit the try clause to the absolute minimum amount of code necessary. Again, this avoids masking bugs:
+  ```py
+  # Correct:
+  try:
+      value = collection[key]
+  except KeyError:
+      return key_not_found(key)
+  else:
+      return handle_value(value)
+  ```
+  ```py
+  # Wrong:
+  try:
+      # Too broad!
+      return handle_value(collection[key])
+  except KeyError:
+      # Will also catch KeyError raised by handle_value()
+      return key_not_found(key)
+  ```
 
 <br>
 <br>
 
-## 8. Programming (discord.py)
+### 7.2 Discord.py
