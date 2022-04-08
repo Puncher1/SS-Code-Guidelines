@@ -620,6 +620,42 @@ Defined on a module level and written in all capital letters with underscores fo
       return key_not_found(key)
   ```
 
+* For functions use `return None` if nothing gets returned, and an explicit return statement should be present at the end of the function (if reachable):
+  ```py
+  # Correct:
+
+  def foo(x):
+      if x >= 0:
+          return math.sqrt(x)
+      else:
+          return None
+
+  def bar(x):
+      if x < 0:
+          return None
+      return math.sqrt(x)
+  ```
+  ```py
+  # Wrong:
+
+  def foo(x):
+      if x >= 0:
+          return math.sqrt(x)
+
+  def bar(x):
+      if x < 0:
+          return
+      return math.sqrt(x)
+  ```
+
+* Use `''.startswith()` and `''.endswith()` instead of string slicing to    check for prefixes or suffixes. `startswith()` and `endswith()` are cleaner and less error prone:
+  ```py
+  # Correct:
+  if foo.startswith('bar'):
+  ```
+# Wrong:
+if foo[:3] == 'bar':
+
 <br>
 <br>
 
