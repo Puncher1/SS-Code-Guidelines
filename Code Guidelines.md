@@ -5,6 +5,9 @@
 <br>
 <br>
 
+TODO:
+- returns: https://stackoverflow.com/questions/15300550/return-return-none-and-no-return-at-all
+
 ## 0. Table of Contents
   - [0. Table of Contents](#0-table-of-contents)
   - [1. Introduction](#1-introduction)
@@ -588,6 +591,38 @@ Defined on a module level and written in all capital letters with underscores fo
   if not foo is None:
   ```
 
+* Use `''.startswith()` and `''.endswith()` instead of string slicing to    check for prefixes or suffixes. `startswith()` and `endswith()` are cleaner and less error prone:
+  ```py
+  # Correct:
+  if foo.startswith('bar'):
+  ```
+  ```py
+  # Wrong:
+  if foo[:3] == 'bar':
+  ```
+
+* Object type comparisons should always use isinstance() instead of comparing types directly:
+  ```py
+  # Correct:
+  if isinstance(obj, int):
+  ```
+  ```py
+  # Wrong:
+  if type(obj) is type(1):
+  ```
+
+* For sequences, (strings, lists, tuples), use the fact that empty sequences are false:
+  ```py
+  # Correct:
+  if not seq:
+  if seq:
+  ```
+  ```py
+  # Wrong:
+  if len(seq):
+  if not len(seq):
+  ```
+
 #### 7.1.2 Exceptions
 
 * Derive/Inherit exceptions from `Exception` rather than `BaseException`.
@@ -620,6 +655,8 @@ Defined on a module level and written in all capital letters with underscores fo
       return key_not_found(key)
   ```
 
+#### 7.1.3 Functions
+
 * For functions use `return None` if nothing gets returned, and an explicit return statement should be present at the end of the function (if reachable):
   ```py
   # Correct:
@@ -647,14 +684,6 @@ Defined on a module level and written in all capital letters with underscores fo
           return
       return math.sqrt(x)
   ```
-
-* Use `''.startswith()` and `''.endswith()` instead of string slicing to    check for prefixes or suffixes. `startswith()` and `endswith()` are cleaner and less error prone:
-  ```py
-  # Correct:
-  if foo.startswith('bar'):
-  ```
-# Wrong:
-if foo[:3] == 'bar':
 
 <br>
 <br>
