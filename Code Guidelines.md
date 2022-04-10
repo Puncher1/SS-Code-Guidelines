@@ -35,7 +35,12 @@ TODO:
       - [6.7.3 Function and Variable Names](#673-function-and-variable-names)
       - [6.7.4 Method Names and Instance Variables](#674-method-names-and-instance-variables)
       - [6.7.5 Constants](#675-constants)
-      - [6.7.6 Designing for Inheritance](#676-designing-for-inheritance)
+  - [7. Programming](#7-programming)
+    - [7.1 General](#71-general)
+      - [7.1.1 Comparisons](#711-comparisons)
+      - [7.1.2 Exceptions](#712-exceptions)
+      - [7.1.3 Return Statements](#713-return-statements)
+    - [7.2 Discord.py](#72-discordpy)
 
 <br>
 <br>
@@ -542,7 +547,7 @@ In addition, the following special forms using leading or trailing underscores a
 
 
 #### 6.7.1 Package and Module Names
-Short, all-lowercase names, underscores only if it improves readability (e.g. `var = "string"`)
+Short, all-lowercase names. Underscores only if it improves readability (e.g. `utils.py`, `file_reader.py`)
 
 #### 6.7.2 Class Names
 CamelCase convention (e.g. `class FooBar`)
@@ -569,14 +574,14 @@ Same name conventions as for [Function and Variable Names](#673-function-and-var
 #### 6.7.5 Constants
 Defined on a module level and written in all capital letters with underscores for separating words. (e.g. `MAX_TIME`, `TOTAL`)
 
-#### 6.7.6 Designing for Inheritance
-
 <br>
 <br>
 
 ## 7. Programming
 
 ### 7.1 General
+
+See [Discord.py](#72-discordpy) for discord.py-specific rules. The following rules are general rules.
 
 #### 7.1.1 Comparisons
 
@@ -655,10 +660,10 @@ Defined on a module level and written in all capital letters with underscores fo
       return key_not_found(key)
   ```
 
-#### 7.1.3 Functions
+#### 7.1.3 Return Statements
 
-**Returns**<br>
-`return None`, `return` and no `return` at all will return `None` in the end. However, those should be used differently.
+`return None`, `return` and no `return` at all will return `None` in the end. 
+However, each should be used differently.
 
 * Use `return None` if the function is actually meant to return a value in another case:
 
@@ -685,7 +690,12 @@ Defined on a module level and written in all capital letters with underscores fo
 
       enter_party()
   ```
-
+* Use `return` **not at all** if the return value is not meant to be used or caught:
+  ```py
+  def set_knife(guest, knife):
+      if is_human(guest):
+          guest.knife = knife
+  ```
 
 <br>
 <br>
