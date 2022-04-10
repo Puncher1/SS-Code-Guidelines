@@ -657,10 +657,12 @@ Defined on a module level and written in all capital letters with underscores fo
 
 #### 7.1.3 Functions
 
-* For functions use `return None` if nothing gets returned, and an explicit return statement should be present at the end of the function (if reachable):
-  ```py
-  # Correct:
+**Returns**<br>
+`return None`, `return` and no `return` at all will return `None` in the end. However, those should be used differently.
 
+* Use `return None` if the function is actually meant to return a value in another case:
+
+  ```py
   def foo(x):
       if x >= 0:
           return math.sqrt(x)
@@ -672,18 +674,18 @@ Defined on a module level and written in all capital letters with underscores fo
           return None
       return math.sqrt(x)
   ```
+* Use `return` if the function doesn't return anything at all. It's used for the same reason as `break` in loops:
+
   ```py
-  # Wrong:
+  def foo(guests):
+      for guest in guests:
+          if human.knife:
+              call_police()
+              return
 
-  def foo(x):
-      if x >= 0:
-          return math.sqrt(x)
-
-  def bar(x):
-      if x < 0:
-          return
-      return math.sqrt(x)
+      enter_party()
   ```
+
 
 <br>
 <br>
