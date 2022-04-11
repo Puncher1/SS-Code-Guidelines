@@ -142,8 +142,8 @@ The preffered way to wrapping long lines is by using the Python's implied line c
 ```py
 
 # Python's implied line continuation inside brackets
-if (True == True and False == False
-    or False == False and True == True)
+if (1 == 1 and 2 == 2
+    or 3 == 3 and 4 == 4)
 
 # Backslash line continuation
 with open('/path/to/some/file/you/want/to/read') as file_1, \
@@ -696,6 +696,11 @@ However, each should be used differently.
       if is_human(guest):
           guest.knife = knife
   ```
+
+#### 7.1.3 Loops
+
+
+#### 7.1.4 Others
 
 <br>
 <br>
