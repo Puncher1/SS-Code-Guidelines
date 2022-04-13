@@ -706,6 +706,18 @@ However, each should be used differently.
 
 #### 7.1.3 Loops
 
+* If you need the index in a for loop, use `enumerate()` instead of using a increment variable:
+  ```py
+  # Correct:
+  for index, guest in enumerate(guests):
+  ```
+  ```py
+  # Wrong:
+  index = 0
+  for guest in guests:
+    # ...
+    index += 1
+  ```
 
 #### 7.1.4 Others
 
