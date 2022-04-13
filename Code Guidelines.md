@@ -679,7 +679,7 @@ However, each should be used differently.
           return None
       return math.sqrt(x)
   ```
-* Use `return` if the function doesn't return anything at all. It's used for the same reason as `break` in loops:
+* Use `return` if the function doesn't return anything at all. It's used for the same reason as `break` in loops or if you want to leave the function and the return value is not meant to be used or caught:
 
   ```py
   def foo(guests):
@@ -689,6 +689,13 @@ However, each should be used differently.
               return
 
       enter_party()
+  ```
+  ```py
+  def set_foo(arg):
+      if isinstance(arg, int):
+          return
+      
+      self.var = arg
   ```
 * Use `return` **not at all** if the return value is not meant to be used or caught:
   ```py
