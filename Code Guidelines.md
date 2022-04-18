@@ -47,19 +47,24 @@
 <br>
 <br>
 
-## 1. Introduction
+## 1. Usage
+
+These guidelines must be applied on the `main` branch. However it's an advantage if this is already taken care of in the `beta` branch.  Pull requests to the `main` branch containing code that violates the code guidelines will be rejected.
+
+
+## 2. Introduction
 To understand code better and faster and to have consistency through the code, it’s important to follow and adhere to code guidelines. Code guidelines is about consistency, which is very important.<br>
 This document provides the guidelines for Python Code at School Simplified IT Dept. – Bot Development and is intended to be a reference of compliance with those guidelines. The guidelines are based on the [PEP8 – Style Guide for Python Code](https://peps.python.org/pep-0008/) and also provides internal guidelines to work with the library [discord.py](https://github.com/Rapptz/discord.py) and the environment of the Bot.
 
 <br>
 <br>
 
-## 2. Code Layout
+## 3. Code Layout
 
-### 2.1. Indentation
+### 3.1. Indentation
 Use 4 spaces for one indentation level. **In PyCharm, 1 tab is already 4 spaces by default.**
 
-#### 2.1.1. Function definition and call
+#### 3.1.1. Function definition and call
 ```py
 # Correct:
 
@@ -88,7 +93,7 @@ def long_function_name(
     print(var_one)
 ```
 
-#### 2.1.2. If-Statements
+#### 3.1.2. If-Statements
 For `if`-statements there are no specific rules on how to indent. However, acceptable options include, but are not limited to:
 
 ```py
@@ -105,7 +110,7 @@ if (this_is_one_thing and
     do_something()
 ```
 
-#### 2.1.3. Closing brace/bracket/parenthesis
+#### 3.1.3. Closing brace/bracket/parenthesis
 The closing brace/bracket/parenthesis on multiline constructs may either line up under the first non-whitespace character of the last line of list, as in:
 
 ```py
@@ -133,7 +138,7 @@ result = some_function_that_takes_arguments(
 
 <br>
 
-### 2.2. Line Length
+### 3.2. Line Length
 
 **<ins>We don't apply this rule<ins/>**, even when PEP8 requires to limit all lines to a maximum length of 79 characters. However, limit it to something reasonable.
 
@@ -154,7 +159,7 @@ with open('/path/to/some/file/you/want/to/read') as file_1, \
 
 <br>
 
-### 2.3. Line Break at Operators
+### 3.3. Line Break at Operators
 
 For readability it's recommended to line break **before** the operator (see below). However, it's <ins>not mandatory.</ins>
 
@@ -170,7 +175,7 @@ income = (gross_wages
 
 <br>
 
-### 2.4. Blank Lines
+### 3.4. Blank Lines
 
 **Top-level classes and functions:** Surrounded by 2 blank lines
 ```py
@@ -223,7 +228,7 @@ now = datetime.now() + timedelta(hours=result)
 
 <br>
 
-### 2.5. Imports
+### 3.5. Imports
 
 * Imports should be on separate lines.
     ```py
@@ -272,7 +277,7 @@ now = datetime.now() + timedelta(hours=result)
 
 <br>
 
-### 2.6. Module Level Dunder Names
+### 3.6. Module Level Dunder Names
 Module level “dunders” (i.e. names with two leading and two trailing underscores) such as `__all__`, `__author__`, `__version__`, etc. should be placed after the module docstring but before any import statements except `from __future__` imports. Python mandates that future-imports must appear in the module before any other code except docstrings:
 
 ```py
@@ -293,7 +298,7 @@ import sys
 <br>
 <br>
 
-## 3. String Quotes
+## 4. String Quotes
 In Python, single-quoted strings and double-quoted strings are the same. You can either use double-quotes (`"Hello World!"`) or single quotes (`'Hello World!'`).
 
 **For triple-quoted strings, always use <ins>double quotes</ins> to be consistent with the docstring convention.** 
@@ -301,9 +306,9 @@ In Python, single-quoted strings and double-quoted strings are the same. You can
 <br>
 <br>
 
-## 4. Whitespace in Expressions and Statements
+## 5. Whitespace in Expressions and Statements
 
-### 4.1 Pet Peeves
+### 5.1. Pet Peeves
 Avoid extraneous whitespace in the following situations:
 * Immediately inside parentheses, brackets or braces:
   
@@ -386,7 +391,7 @@ Avoid extraneous whitespace in the following situations:
 
 <br>
 
-### 4.2 Other important things 
+### 5.2. Other important things 
 
 * Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker.
 * Always surround these binary operators with a single space on either side: assignment (`=`), augmented assignment (`+=`, `-=` etc.), comparisons (`==`, `<`, `>`, `!=`, `<>`, `<=`, `>=`, `in`, `not in`, `is`, `is not`), Booleans (`and`, `or`, `not`).
@@ -408,7 +413,7 @@ Avoid extraneous whitespace in the following situations:
   hypot2 = x * x + y * y
   c = (a + b) * (a - b)
   ```
-* Function annotations should use the normal rules for colons and always have spaces around the -> arrow if present. (See <span style="color:red">**Function Annotations**</span> below for more about function annotations.):
+* Function annotations should use the normal rules for colons and always have spaces around the `->` if present:
 
   ```py
   # Correct:
@@ -488,12 +493,12 @@ Avoid extraneous whitespace in the following situations:
 <br>
 <br>
 
-## 5. Comments
+## 6. Comments
 Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes! Ensure that your comments are clear and easily understandable to others.
 
 <br>
 
-### 5.1 Documentation Strings
+### 6.1. Documentation Strings
 * Write docstrings for **all public modules, functions, classes and methods.** For non-public (`def __foo(): ...`) methods you don't have to use docstrings. A description with a comment is useful though. This comment should appear after the `def` line.
 
 Multiline docstrings:
@@ -512,9 +517,9 @@ One liner docstrings:
 <br>
 <br>
 
-## 6. Naming Conventions
+## 7. Naming Conventions
 
-### 6.1 Descriptive: Naming Styles
+### 7.1. Descriptive: Naming Styles
 The following naming styles are commonly used:
 * `b` (single lowercase letter)
 * `B` (single uppercase letter)
@@ -538,7 +543,7 @@ In addition, the following special forms using leading or trailing underscores a
 
 <br>
 
-### 6.7 Prescriptive: Naming Conventions
+### 7.2. Prescriptive: Naming Conventions
 **Names to avoid as single character variable names**:
 * `l` (loweercase letter "el")
 * `O` (uppercase letter "oh")
@@ -546,13 +551,13 @@ In addition, the following special forms using leading or trailing underscores a
   In some fonts these characters are indistinguishable.
 
 
-#### 6.7.1 Package and Module Names
+#### 7.2.1. Package and Module Names
 Short, all-lowercase names. Underscores only if it improves readability (e.g. `utils.py`, `file_reader.py`)
 
-#### 6.7.2 Class Names
+#### 7.2.2. Class Names
 CamelCase convention (e.g. `class FooBar`)
 
-#### 6.7.3 Function and Variable Names
+#### 7.2.3. Function and Variable Names
 Lowercase, with words separated by underscores for readability.
 ```py
 # Correct:
@@ -561,7 +566,7 @@ def create_foo():
   num = 1
 ```
 
-#### 6.7.4 Method Names and Instance Variables
+#### 7.2.4. Method Names and Instance Variables
 Same name conventions as for [Function and Variable Names](#673-function-and-variable-names).
 
 **Avoid variable name clashes:**
@@ -571,19 +576,19 @@ Same name conventions as for [Function and Variable Names](#673-function-and-var
 
 **Note:** In Python no attribute is really private. If class `FooBar` has an attribute named `__bar`, it cannot be accessed by `FooBar.__bar` but by `FooBar._FooBar__bar`.
 
-#### 6.7.5 Constants
+#### 7.2.5. Constants
 Defined on a module level and written in all capital letters with underscores for separating words. (e.g. `MAX_TIME`, `TOTAL`)
 
 <br>
 <br>
 
-## 7. Programming
+## 8. Programming
 
-### 7.1 General
+### 8.1. General
 
 See [Discord.py](#72-discordpy) for discord.py-specific rules. The following rules are general rules.
 
-#### 7.1.1 Comparisons
+#### 8.1.1. Comparisons
 
 * For `True`, `False` and `None` use `is` resp. `is not` instead of the equality operators. 
 * Use `is not` instead of `not ... is `. Both are technically the same but it's more readable:
@@ -628,7 +633,7 @@ See [Discord.py](#72-discordpy) for discord.py-specific rules. The following rul
   if not len(seq):
   ```
 
-#### 7.1.2 Exceptions
+#### 8.1.2. Exceptions
 
 * Derive/Inherit exceptions from `Exception` rather than `BaseException`.
 * When catching excpetions don't use bare `except`. Mention specific exceptions whenever possible:
@@ -660,7 +665,7 @@ See [Discord.py](#72-discordpy) for discord.py-specific rules. The following rul
       return key_not_found(key)
   ```
 
-#### 7.1.3 Return Statements
+#### 8.1.3. Return Statements
 
 `return None`, `return` and no `return` at all will return `None` in the end. 
 However, each should be used differently.<br>
@@ -704,7 +709,7 @@ However, each should be used differently.<br>
           guest.knife = knife
   ```
 
-#### 7.1.3 Loops
+#### 8.1.3. Loops
 
 * If you need the index in a `for` loop, use `enumerate` instead of using an increment variable. It's less error prone and easier to read:
   ```py
@@ -751,7 +756,7 @@ However, each should be used differently.<br>
     value = d[key]
   ```
 
-#### 7.1.4 Others
+#### 8.1.4. Others
 
 * To get all elements of a tuple use unpacking not indexing:
 
@@ -797,7 +802,7 @@ However, each should be used differently.<br>
 <br>
 <br>
 
-### 7.2 Discord.py
+### 8.2. Discord.py
 
 * Whenever it's possible, use `get_x` instead of `fetch_x`. `fetch_x` causes unnecessary API calls, which should be limited to a minimum. Get it from the cache instead.
 
@@ -828,9 +833,11 @@ However, each should be used differently.<br>
     # ...
   ```
 
-### 7.2 Environment
+* Don't use raw IDs e.g. `932066545117585428`. Create variables in `core/common.py` in the specific class instead and add it to ConfigCat.
 
-* For constant objects and variables use the modules in `core`:
+### 8.3. Environment
+
+* For constant objects, constant variables and Discord IDs use the modules in `core`:
   
   ```py
   # Correct:
