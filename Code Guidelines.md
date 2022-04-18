@@ -57,7 +57,7 @@ This document provides the guidelines for Python Code at School Simplified IT De
 ## 2. Code Layout
 
 ### 2.1. Indentation
-Use 4 spaces for one indentation level. **In PyCharm, 1 tab is 4 spaces.**
+Use 4 spaces for one indentation level. **In PyCharm, 1 tab is already 4 spaces by default.**
 
 #### 2.1.1. Function definition and call
 ```py
