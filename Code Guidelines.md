@@ -5,8 +5,7 @@
 <br>
 <br>
 
-TODO:
-- returns: https://stackoverflow.com/questions/15300550/return-return-none-and-no-return-at-all
+###### Written and proved by Puncher - If you have any questions don't hesitate to ask me.
 
 ## 0. Table of Contents
   - [0. Table of Contents](#0-table-of-contents)
@@ -40,14 +39,17 @@ TODO:
       - [7.1.1 Comparisons](#711-comparisons)
       - [7.1.2 Exceptions](#712-exceptions)
       - [7.1.3 Return Statements](#713-return-statements)
+      - [7.1.3 Loops](#713-loops)
+      - [7.1.4 Others](#714-others)
     - [7.2 Discord.py](#72-discordpy)
+    - [7.2 Environment](#72-environment)
 
 <br>
 <br>
 
 ## 1. Introduction
-To understand code better and faster and to have consistency through the code, it’s important to follow and adhere to code guidelines. Code guidelines is about consistency. Consistency in code is important. Consistency within a project is more important. Consistency within one module or function is the most important. 
-This document provides the guidelines for Python Code at School Simplified IT Dept. – Bot Development and is intended to be a reference of compliance with those guidelines. The guidelines are based on the [PEP8 – Style Guide for Python Code](https://peps.python.org/pep-0008/) and the [PEP257 – Docstring Conventions](https://peps.python.org/pep-0257/) and also provides internal guidelines to work with the library [discord.py](https://github.com/Rapptz/discord.py).
+To understand code better and faster and to have consistency through the code, it’s important to follow and adhere to code guidelines. Code guidelines is about consistency, which is very important.<br>
+This document provides the guidelines for Python Code at School Simplified IT Dept. – Bot Development and is intended to be a reference of compliance with those guidelines. The guidelines are based on the [PEP8 – Style Guide for Python Code](https://peps.python.org/pep-0008/) and also provides internal guidelines to work with the library [discord.py](https://github.com/Rapptz/discord.py) and the environment of the Bot.
 
 <br>
 <br>
@@ -133,9 +135,7 @@ result = some_function_that_takes_arguments(
 
 ### 2.2. Line Length
 
-**<ins>We don't apply this rule<ins/>**, even when PEP8 requires to limit all lines to a maximum length of 79 characters. However, limit it to something reasonable. In PyCharm the limit is 120 characters by default which is marked with a thin, grey line.
-
-<span style="color:red">**IMAGE HERE**</span>
+**<ins>We don't apply this rule<ins/>**, even when PEP8 requires to limit all lines to a maximum length of 79 characters. However, limit it to something reasonable.
 
 The preffered way to wrapping long lines is by using the Python's implied line continuation inside brackets. Long lines can also be broken over multiple lines by using a **backslash** for line continuation if it's needed.
 
@@ -663,7 +663,7 @@ See [Discord.py](#72-discordpy) for discord.py-specific rules. The following rul
 #### 7.1.3 Return Statements
 
 `return None`, `return` and no `return` at all will return `None` in the end. 
-However, each should be used differently.
+However, each should be used differently.<br>
 
 * Use `return None` if the function is actually meant to return a value in another case:
 
@@ -706,22 +706,139 @@ However, each should be used differently.
 
 #### 7.1.3 Loops
 
-* If you need the index in a for loop, use `enumerate()` instead of using a increment variable:
+* If you need the index in a `for` loop, use `enumerate` instead of using an increment variable. It's less error prone and easier to read:
   ```py
   # Correct:
-  for index, guest in enumerate(guests):
+  for i, guest in enumerate(guests):
+    # ...
   ```
   ```py
   # Wrong:
-  index = 0
+  i = 0
   for guest in guests:
     # ...
-    index += 1
+    i += 1
+  ```
+
+* If you want to iterate over two iteratables, use `zip`:
+  ```py
+  a = [1, 2, 3]
+  b = [4, 5, 6]
+
+  for av, bv in zip(a, b):
+    # ...
+  ```
+  
+  And if you need the index, use  `enumerate` and `zip` in combination:
+  ```py
+  a = [1, 2, 3]
+  b = [4, 5, 6]
+
+  for i, (av, bv) in enumerate(zip(a, b)):
+    # ...
+
+* If you iterate over a dict, use `dict.items()` to get the key and value:
+  ```py
+  # Correct:
+  d = {"a": 1, "b": 2, "c": 3}
+  for key, value in d.items():
+    # ...
+  ```
+  ```py
+  # Wrong:
+  d = {"a": 1, "b": 2, "c": 3}
+  for key in d:
+    value = d[key]
   ```
 
 #### 7.1.4 Others
+
+* To get all elements of a tuple use unpacking not indexing:
+
+  ```py
+  # Correct:
+  my_tuple = (1, 2)
+  x, y = my_tuple
+  ```
+  ```py
+  # Wrong:
+  my_tuple = (1, 2)
+  x = my_tuple[0]
+  y = my_tuple[1]
+  ```
+* Use comprehensions on dicts, lists, sets and generators. However use it sensibly. Sometimes it's easier to read when just using `for` loops:
+  ```py
+  # Good Readability:
+  dict_comp = {i: i * i for i in range(10)}
+  list_comp = [x*x for x in range(10)]
+  set_comp = {i%3  for i in range(10)}
+  gen_comp = (2*x+5 for x in range(10))
+  ```
+  ```py
+  # Bad Readability:
+  comp = [
+    sum(a[n * i + k] * b[n * k + j] for k in range(n))
+    for i in range(n)
+    for j in range(n)
+    ]
+  ```
+* When using `\n` in strings, really make a new line in the code for better readability:
+  ```py
+  # Correct: 
+  my_string = "Hello this is an example text." \
+              "\nThanks for reading."
+  ```
+  ```py
+  # Wrong:
+  my_string = "Hello this is an example text.\nThanks for reading."
+  ```
+  **Tip:** In most IDEs, when you hit the enter key inside a string it will automatically continue the string on the new line.
 
 <br>
 <br>
 
 ### 7.2 Discord.py
+
+* Whenever it's possible, use `get_x` instead of `fetch_x`. `fetch_x` causes unnecessary API calls, which should be limited to a minimum. Get it from the cache instead.
+
+* When using the decorators for `app_commands` or `commands` use also the module's name in the decorator to avoid name clashing and provide a better readability:
+  ```py
+  # Correct:
+  @commands.command()
+  async def my_command(self, ctx: commands.Context):
+    # ...
+  
+  @app_commands.command(name="my_slash_command")
+  async def my_slash_command(self, interaction: discord.Interaction)
+    # ...
+  ```
+  ```py
+  # Wrong:
+  from app_commands import command
+  
+  @command(name="my_slash_command")
+  async def my_slash_command(self, interaction: discord.Interaction)
+    # ...
+  ```
+
+* For event and command functions, use typehints for all parameters:
+  ```py
+  @commands.command()
+  async def my_command(self, ctx: commands.Context, member: discord.Member):
+    # ...
+  ```
+
+### 7.2 Environment
+
+* For constant objects and variables use the modules in `core`:
+  
+  ```py
+  # Correct:
+  from core.common import Colors
+
+  embed = discord.Embed(color=Colors.red)
+  ```
+  ```py
+  # Wrong:
+  embed = discord.Embed(color=0xff0000)
+  ```
