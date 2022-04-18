@@ -89,7 +89,7 @@ def long_function_name(
 ```
 
 #### 2.1.2. If-Statements
-For `if`-statements there are no specific rules on how to do indent. However, acceptable options include, but are not limited to:
+For `if`-statements there are no specific rules on how to indent. However, acceptable options include, but are not limited to:
 
 ```py
 # No extra indentation.
