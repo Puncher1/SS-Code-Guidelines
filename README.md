@@ -74,30 +74,23 @@ Use 4 spaces for one indentation level. **In PyCharm, 1 tab is already 4 spaces 
 ```py
 # Correct:
 
-# Aligned with opening delimiter.
-foo = long_function_name(var_one, var_two,
-                         var_three, var_four)
+# The closing parenthesis should be extended.
+foo = long_function_name(
+    var_one, 
+    var_two,
+    var_three, 
+    var_four
+)
 
-# Add 4 spaces (an extra level of indentation) to distinguish arguments from the rest.
 def long_function_name(
-        var_one, var_two, var_three,
-        var_four):
-    print(var_one)
-
-```
-```py
-# Wrong:
-
-# Arguments on first line forbidden when not using vertical alignment.
-foo = long_function_name(var_one, var_two,
-    var_three, var_four)
-
-# Further indentation required as indentation is not distinguishable.
-def long_function_name(
-    var_one, var_two, var_three,
-    var_four):
+        var_one, 
+        var_two, 
+        var_three, 
+        var_four
+):
     print(var_one)
 ```
+
 
 #### 3.1.2. If-Statements
 For `if`-statements there are no specific rules on how to indent. However, acceptable options include, but are not limited to:
@@ -117,20 +110,7 @@ if (this_is_one_thing and
 ```
 
 #### 3.1.3. Closing brace/bracket/parenthesis
-The closing brace/bracket/parenthesis on multiline constructs may either line up under the first non-whitespace character of the last line of list, as in:
-
-```py
-my_list = [
-    1, 2, 3,
-    4, 5, 6,
-    ]
-result = some_function_that_takes_arguments(
-    'a', 'b', 'c',
-    'd', 'e', 'f',
-    )
-```
-or it may be lined up under the first character of the line that starts the multiline construct, as in:
-
+The closing brace/bracket/parenthesis on multiline constructs must be lined up under the first character of the line that starts the multiline construct, as in:
 ```py
 my_list = [
     1, 2, 3,
