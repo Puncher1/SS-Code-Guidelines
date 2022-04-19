@@ -50,7 +50,7 @@
 
 ## 1. Introduction
 To understand code better and faster and to have consistency through the code, it’s important to follow and adhere to code guidelines. Code guidelines is about consistency, which is very important.<br>
-This document provides the guidelines for Python Code at School Simplified IT Dept. – Bot Development and is intended to be a reference of compliance with those guidelines. The guidelines are based on the [PEP8 – Style Guide for Python Code](https://peps.python.org/pep-0008/) and also provides internal guidelines to work with the library [discord.py](https://github.com/Rapptz/discord.py) and the environment of the Bot.
+This document provides the guidelines for Python Code at School Simplified IT Dept. – Bot Development and is intended to be a reference of compliance with those guidelines. The guidelines are based on the [PEP8 – Style Guide for Python Code](https://peps.python.org/pep-0008/) and also provides internal guidelines to work with the library [discord.py](https://github.com/Rapptz/discord.py) and the environment of the bot.
 
 
 
@@ -59,7 +59,7 @@ This document provides the guidelines for Python Code at School Simplified IT De
 
 ## 2. Usage
 
-These guidelines must be applied on the `main` branch. However it's an advantage if this is already taken care of in the `beta` branch.  Pull requests to the `main` branch containing code that violates the code guidelines will be rejected.
+These guidelines must be applied on the `main` branch. However it's an advantage if this is already taken care of in the `beta` branch. Pull requests to the `main` branch containing code that violates the code guidelines will be rejected.
 
 <br>
 <br>
