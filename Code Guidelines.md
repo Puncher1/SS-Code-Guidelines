@@ -9,8 +9,8 @@
 
 ## 0. Table of Contents
   - [0. Table of Contents](#0-table-of-contents)
-  - [1. Usage](#1-usage)
-  - [2. Introduction](#2-introduction)
+  - [1. Introduction](#1-introduction)
+  - [2. Usage](#2-usage)
   - [3. Code Layout](#3-code-layout)
     - [3.1. Indentation](#31-indentation)
       - [3.1.1. Function definition and call](#311-function-definition-and-call)
@@ -48,16 +48,18 @@
 <br>
 <br>
 
-## 1. Usage
-
-These guidelines must be applied on the `main` branch. However it's an advantage if this is already taken care of in the `beta` branch.  Pull requests to the `main` branch containing code that violates the code guidelines will be rejected.
-
-<br>
-<br>
-
-## 2. Introduction
+## 1. Introduction
 To understand code better and faster and to have consistency through the code, it’s important to follow and adhere to code guidelines. Code guidelines is about consistency, which is very important.<br>
 This document provides the guidelines for Python Code at School Simplified IT Dept. – Bot Development and is intended to be a reference of compliance with those guidelines. The guidelines are based on the [PEP8 – Style Guide for Python Code](https://peps.python.org/pep-0008/) and also provides internal guidelines to work with the library [discord.py](https://github.com/Rapptz/discord.py) and the environment of the Bot.
+
+
+
+<br>
+<br>
+
+## 2. Usage
+
+These guidelines must be applied on the `main` branch. However it's an advantage if this is already taken care of in the `beta` branch.  Pull requests to the `main` branch containing code that violates the code guidelines will be rejected.
 
 <br>
 <br>
