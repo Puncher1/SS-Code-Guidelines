@@ -430,18 +430,6 @@ Avoid extraneous whitespace in the following situations:
   def munge(input:AnyStr): ...
   def munge()->PosInt: ...
   ```
-* Don’t use spaces around the `=` sign when used to indicate a keyword argument, or when used to indicate a default value for an unannotated function parameter:
-
-  ```py
-  # Correct:
-  def complex(real, imag=0.0):
-      return magic(r=real, i=imag)
-  ```  
-  ```py
-  # Wrong:
-  def complex(real, imag = 0.0):
-      return magic(r = real, i = imag)
-  ```
 * Don’t use spaces around the `=` sign when used to indicate a keyword argument, or when used to indicate a default value for an *unannotated* function parameter:
 
   ```py
