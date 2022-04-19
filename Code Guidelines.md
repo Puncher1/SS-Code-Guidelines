@@ -9,40 +9,41 @@
 
 ## 0. Table of Contents
   - [0. Table of Contents](#0-table-of-contents)
-  - [1. Introduction](#1-introduction)
-  - [2. Code Layout](#2-code-layout)
-    - [2.1. Indentation](#21-indentation)
-      - [2.1.1. Function definition and call](#211-function-definition-and-call)
-      - [2.1.2. If-Statements](#212-if-statements)
-      - [2.1.3. Closing brace/bracket/parenthesis](#213-closing-bracebracketparenthesis)
-    - [2.2. Line Length](#22-line-length)
-    - [2.3. Line Break at Operators](#23-line-break-at-operators)
-    - [2.4. Blank Lines](#24-blank-lines)
-    - [2.5. Imports](#25-imports)
-    - [2.6. Module Level Dunder Names](#26-module-level-dunder-names)
-  - [3. String Quotes](#3-string-quotes)
-  - [4. Whitespace in Expressions and Statements](#4-whitespace-in-expressions-and-statements)
-    - [4.1 Pet Peeves](#41-pet-peeves)
-    - [4.2 Other important things](#42-other-important-things)
-  - [5. Comments](#5-comments)
-    - [5.1 Documentation Strings](#51-documentation-strings)
-  - [6. Naming Conventions](#6-naming-conventions)
-    - [6.1 Descriptive: Naming Styles](#61-descriptive-naming-styles)
-    - [6.7 Prescriptive: Naming Conventions](#67-prescriptive-naming-conventions)
-      - [6.7.1 Package and Module Names](#671-package-and-module-names)
-      - [6.7.2 Class Names](#672-class-names)
-      - [6.7.3 Function and Variable Names](#673-function-and-variable-names)
-      - [6.7.4 Method Names and Instance Variables](#674-method-names-and-instance-variables)
-      - [6.7.5 Constants](#675-constants)
-  - [7. Programming](#7-programming)
-    - [7.1 General](#71-general)
-      - [7.1.1 Comparisons](#711-comparisons)
-      - [7.1.2 Exceptions](#712-exceptions)
-      - [7.1.3 Return Statements](#713-return-statements)
-      - [7.1.3 Loops](#713-loops)
-      - [7.1.4 Others](#714-others)
-    - [7.2 Discord.py](#72-discordpy)
-    - [7.2 Environment](#72-environment)
+  - [1. Usage](#1-usage)
+  - [2. Introduction](#2-introduction)
+  - [3. Code Layout](#3-code-layout)
+    - [3.1. Indentation](#31-indentation)
+      - [3.1.1. Function definition and call](#311-function-definition-and-call)
+      - [3.1.2. If-Statements](#312-if-statements)
+      - [3.1.3. Closing brace/bracket/parenthesis](#313-closing-bracebracketparenthesis)
+    - [3.2. Line Length](#32-line-length)
+    - [3.3. Line Break at Operators](#33-line-break-at-operators)
+    - [3.4. Blank Lines](#34-blank-lines)
+    - [3.5. Imports](#35-imports)
+    - [3.6. Module Level Dunder Names](#36-module-level-dunder-names)
+  - [4. String Quotes](#4-string-quotes)
+  - [5. Whitespace in Expressions and Statements](#5-whitespace-in-expressions-and-statements)
+    - [5.1. Pet Peeves](#51-pet-peeves)
+    - [5.2. Other important things](#52-other-important-things)
+  - [6. Comments](#6-comments)
+    - [6.1. Documentation Strings](#61-documentation-strings)
+  - [7. Naming Conventions](#7-naming-conventions)
+    - [7.1. Descriptive: Naming Styles](#71-descriptive-naming-styles)
+    - [7.2. Prescriptive: Naming Conventions](#72-prescriptive-naming-conventions)
+      - [7.2.1. Package and Module Names](#721-package-and-module-names)
+      - [7.2.2. Class Names](#722-class-names)
+      - [7.2.3. Function and Variable Names](#723-function-and-variable-names)
+      - [7.2.4. Method Names and Instance Variables](#724-method-names-and-instance-variables)
+      - [7.2.5. Constants](#725-constants)
+  - [8. Programming](#8-programming)
+    - [8.1. General](#81-general)
+      - [8.1.1. Comparisons](#811-comparisons)
+      - [8.1.2. Exceptions](#812-exceptions)
+      - [8.1.3. Return Statements](#813-return-statements)
+      - [8.1.3. Loops](#813-loops)
+      - [8.1.4. Others](#814-others)
+    - [8.2. Discord.py](#82-discordpy)
+    - [8.3. Environment](#83-environment)
 
 <br>
 <br>
@@ -51,6 +52,8 @@
 
 These guidelines must be applied on the `main` branch. However it's an advantage if this is already taken care of in the `beta` branch.  Pull requests to the `main` branch containing code that violates the code guidelines will be rejected.
 
+<br>
+<br>
 
 ## 2. Introduction
 To understand code better and faster and to have consistency through the code, it’s important to follow and adhere to code guidelines. Code guidelines is about consistency, which is very important.<br>
@@ -800,7 +803,6 @@ However, each should be used differently.<br>
   **Tip:** In most IDEs, when you hit the enter key inside a string it will automatically continue the string on the new line.
 
 <br>
-<br>
 
 ### 8.2. Discord.py
 
@@ -834,6 +836,8 @@ However, each should be used differently.<br>
   ```
 
 * Don't use raw IDs e.g. `932066545117585428`. Create variables in `core/common.py` in the specific class instead and add it to ConfigCat.
+
+<br>
 
 ### 8.3. Environment
 
