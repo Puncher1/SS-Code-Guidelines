@@ -520,10 +520,10 @@ The following naming styles are commonly used:
 * `lower_case_with_underscores`
 * `UPPERCASE`
 * `UPPER_CASE_WITH_UNDERSCORES`
-* `CapitalizedWords` (or CapWords, or CamelCase)
-  <br>Note: When using acronyms in CapWords, capitalize all the letters of the acronym. HTTPServerError is better than HttpServerError.
+* `CamelCase` 
+  <br>Note: When using acronyms in CamelCase, capitalize all the letters of the acronym. HTTPServerError is better than HttpServerError.
 * `mixedCase`
-* `Capitalized_Words_With_Underscores` (**Dont use this**)
+* `Capitalized_Words_With_Underscores` (<ins>**Dont use this**</ins>)
 
 In addition, the following special forms using leading or trailing underscores are recognized (these can generally be combined with any case convention):
 * `_single_leading_underscore`: weak “internal use” indicator. E.g. `from <module> import *` does not import objects whose names start with one underscore.
