@@ -257,7 +257,7 @@ now = datetime.now() + timedelta(hours=result)
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Related third party imports<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Local application/library specific imports
 
-    Between each group put a **blank line** and sort it **alphabetically**.
+    Between each group put a **blank line** and sort it **alphabetically** grouped by it's import-type (`import`, `from ... import`).
     ```py
     """
     This module puts a random number into a google spreadsheet cell.
@@ -267,7 +267,8 @@ now = datetime.now() + timedelta(hours=result)
     import random
 
     # Related third party imports
-    import gspread  
+    import gspread
+    from discord.ext import commands
 
     # Local application/library specific imports
     from core.common import GOOGLE_CREDS
