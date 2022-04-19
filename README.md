@@ -4,9 +4,9 @@
 <br>
 <br>
 
-<p1 style="color:#8b949a; font-size:70px;">Written and proved by Puncher - If you have any questions don't hesitate to ask me.</p1>
+###### Written and proved by Puncher - If you have any questions don't hesitate to ask me.
 
-*<p1 style="color:#8b949a; font-size:11px;">These guidelines are subject to change at any time.</p1>*
+###### *These guidelines are subject to change at any time.*
 
 ## 0. Table of Contents
   - [0. Table of Contents](#0-table-of-contents)
